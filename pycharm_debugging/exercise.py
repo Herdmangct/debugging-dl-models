@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # Create the model. Please, use SGD optimizer for this exercise,
     regressor = RegressorNet(
         input_shape=20,
-        optimizer=tf.keras.optimizers.SGD(learning_rate=0.001, momentum=0.9)
+        optimizer=tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.9)
     )
 
     # Train (leave the number of epochs unchanged and equal to 200)

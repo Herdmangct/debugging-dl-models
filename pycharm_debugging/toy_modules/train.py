@@ -35,3 +35,11 @@ def train(model, epochs, train_dataset, test_dataset, save_dir):
             # Test loss calculation
             loss_test = model.get_loss(X, y)
             test_loss(loss_test)
+
+        # Tensorboard
+        with writer.as_default():
+            tf.summary.scalar('Test loss', test_loss.result(), step=epoch)
+            tf.summary.scalar('Train loss', train_loss.result(), step=epoch)
+
+        if epoch % 10 == 0:
+            print(f'Train loss: {train_loss.result()}. Test loss {test_loss.result()}')
